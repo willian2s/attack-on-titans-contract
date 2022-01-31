@@ -1,9 +1,9 @@
 const main = async () => {
   const ethers = hre.ethers;
-  const dangerousGameContractFactory = await ethers.getContractFactory(
-    "DangerousGame"
+  const AttackOnTitansContractFactory = await ethers.getContractFactory(
+    "AttackOnTitans"
   );
-  const dangerousGameContract = await dangerousGameContractFactory.deploy(
+  const attackOnTitansContract = await AttackOnTitansContractFactory.deploy(
     ["Eren", "Mikasa", "Levi"],
     [
       "https://www.pngmart.com/files/13/Eren-Jaeger-PNG-Image.png",
@@ -17,23 +17,23 @@ const main = async () => {
     50000,
     50
   );
-  await dangerousGameContract.deployed();
-  console.log(`Contract deployed to: ${dangerousGameContract.address}`);
+  await attackOnTitansContract.deployed();
+  console.log(`Contract deployed to: ${attackOnTitansContract.address}`);
 
   let txn;
-  txn = await dangerousGameContract.mintCharacterNFT(0);
+  txn = await attackOnTitansContract.mintCharacterNFT(0);
   await txn.wait();
   console.log("Minted NFT #1");
 
-  txn = await dangerousGameContract.mintCharacterNFT(1);
+  txn = await attackOnTitansContract.mintCharacterNFT(1);
   await txn.wait();
   console.log("Minted NFT #2");
 
-  txn = await dangerousGameContract.mintCharacterNFT(2);
+  txn = await attackOnTitansContract.mintCharacterNFT(2);
   await txn.wait();
   console.log("Minted NFT #3");
 
-  txn = await dangerousGameContract.mintCharacterNFT(1);
+  txn = await attackOnTitansContract.mintCharacterNFT(1);
   await txn.wait();
   console.log("Minted NFT #4");
 

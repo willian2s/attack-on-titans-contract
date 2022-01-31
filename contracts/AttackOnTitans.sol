@@ -7,7 +7,7 @@ import '@openzeppelin/contracts/utils/Strings.sol';
 import 'hardhat/console.sol';
 import './libraries/Base64.sol';
 
-contract DangerousGame is ERC721 {
+contract AttackOnTitans is ERC721 {
   // character's attributes structs
   struct CharacterAttributes {
     uint characterIndex;
@@ -46,7 +46,7 @@ contract DangerousGame is ERC721 {
     uint bossHp,
     uint bossAttackDamage
   )
-    ERC721('Heroes', 'HERO')
+    ERC721('Wings', 'WIN')
   {
 
     bigBoss = BigBoss({
