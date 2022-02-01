@@ -10,11 +10,11 @@ const main = async () => {
       "https://www.pngmart.com/files/19/Anime-Mikasa-PNG-Transparent-Image.png",
       "https://www.pngmart.com/files/19/Captain-Levi-Ackerman-PNG-Transparent-Image.png",
     ],
-    [1000, 1000, 1000],
-    [1450, 1200, 1350],
+    [300, 300, 300],
+    [200, 180, 250],
     "Colossal Titan",
     "https://www.seekpng.com/png/detail/305-3054208_attack-on-titan-colossal-titan-png.png",
-    5000000,
+    40000,
     50
   );
   await attackOnTitansContract.deployed();

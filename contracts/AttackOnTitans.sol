@@ -26,6 +26,9 @@ contract AttackOnTitans is ERC721 {
   mapping(uint256 => CharacterAttributes) public nftHolderAttributes;
   mapping(address => uint256) public nftHolders;
 
+  event CharacterNFTMinted(address sender, uint256 tokenId, uint256 characterIndex);
+  event AttackComplete(uint newBossHp, uint newPlayerHp);
+
   struct BigBoss {
     string name;
     string imageURI;
@@ -88,7 +91,7 @@ contract AttackOnTitans is ERC721 {
       charAttributes.name,
       ' -- NFT #: ',
       Strings.toString(_tokenId),
-      '", "description": "This is an NFT that lets people play in the game Dangerous!", "image": "',
+      '", "description": "This is an NFT that lets people play in the game Attack on Titans!", "image": "',
       charAttributes.imageURI,
       '", "attributes": [ { "trait_type": "Health Points", "value": ',strHp,', "max_value":',strMaxHp,'}, { "trait_type": "Attack Damage", "value": ',
       strAttackDamage,'} ]}'
@@ -121,6 +124,8 @@ contract AttackOnTitans is ERC721 {
     nftHolders[msg.sender] = newItemId;
 
     _tokenIds.increment();
+
+    emit CharacterNFTMinted(msg.sender, newItemId, _characterIndex);
   }
   
   function attackBoss() public {
@@ -154,5 +159,26 @@ contract AttackOnTitans is ERC721 {
 
     console.log('Player attacked boss. New boss hp: %s', bigBoss.hp);
     console.log('Boss attacked player. New player hp: %s\n', player.hp);
+
+    emit AttackComplete(bigBoss.hp, player.hp);
+  }
+
+  function checkIfUserHasNFT() public view returns (CharacterAttributes memory) {
+    uint256 userNftTokenId = nftHolders[msg.sender];
+    
+    if (userNftTokenId > 0) {
+      return nftHolderAttributes[userNftTokenId];
+    } else {
+      CharacterAttributes memory emptyStruc;
+      return emptyStruc;
+    }
+  }
+
+  function getAllDefaultCharacters() public view returns (CharacterAttributes[] memory) {
+    return defaultCharacters;
+  }
+
+  function getBigBoss() public view returns (BigBoss memory) {
+    return bigBoss;
   }
 }
