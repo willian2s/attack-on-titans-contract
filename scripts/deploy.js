@@ -6,14 +6,14 @@ const main = async () => {
   const attackOnTitansContract = await AttackOnTitansContractFactory.deploy(
     ["Eren", "Mikasa", "Levi"],
     [
-      "https://www.pngmart.com/files/13/Eren-Jaeger-PNG-Image.png",
-      "https://www.pngmart.com/files/19/Anime-Mikasa-PNG-Transparent-Image.png",
-      "https://www.pngmart.com/files/19/Captain-Levi-Ackerman-PNG-Transparent-Image.png",
+      "QmX5xNXMFuVTciGtg8zTD7NfyuQsTYc45N7x3vhrahLhp7",
+      "QmSsHYiJYHELrn5rwU223k3NtsV7P9ZNFME1BF8ZgXmGQr",
+      "QmNgobCqqxYRjvCnmciTAbKZPFcHXnY9xiAG5YK6ajXBxR",
     ],
     [300, 300, 300],
     [200, 180, 250],
     "Colossal Titan",
-    "https://www.seekpng.com/png/detail/305-3054208_attack-on-titan-colossal-titan-png.png",
+    "QmbbUfQ9aoKQVx5wXRrLPBXuG8fYhXCMxbT2wCYjqSohmU",
     40000,
     50
   );

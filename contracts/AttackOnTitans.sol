@@ -91,7 +91,7 @@ contract AttackOnTitans is ERC721 {
       charAttributes.name,
       ' -- NFT #: ',
       Strings.toString(_tokenId),
-      '", "description": "This is an NFT that lets people play in the game Attack on Titans!", "image": "',
+      '", "description": "This is an NFT that lets people play in the game Attack on Titans!", "image": "ipfs://',
       charAttributes.imageURI,
       '", "attributes": [ { "trait_type": "Health Points", "value": ',strHp,', "max_value":',strMaxHp,'}, { "trait_type": "Attack Damage", "value": ',
       strAttackDamage,'} ]}'
